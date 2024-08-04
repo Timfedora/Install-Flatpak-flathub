@@ -60,40 +60,41 @@ else
     echo "Detected Distribution: $distro"
     detect_desktop
 
-    # Provide installation instructions based on distribution and desktop environment
+    # Install Flatpak based on distribution and desktop environment
     case "$distro" in
         "Ubuntu" | "Debian")
-            echo "To install Flatpak on $distro, run the following commands:"
-            echo "sudo apt update"
-            echo "sudo apt install flatpak"
-            echo "sudo add-apt-repository ppa:flatpak/stable"
-            echo "sudo apt update"
-            echo "sudo apt install flatpak"
-            echo "sudo apt install gnome-software-plugin-flatpak"
+            echo "Installing Flatpak on $distro..."
+            sudo apt update
+            sudo apt install -y flatpak
+            sudo add-apt-repository -y ppa:flatpak/stable
+            sudo apt update
+            sudo apt install -y flatpak
+            sudo apt install -y gnome-software-plugin-flatpak
             if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]]; then
-                echo "sudo apt install plasma-discover-backend-flatpak"
+                sudo apt install -y plasma-discover-backend-flatpak
             fi
-            echo "After installing, reboot your system."
+            echo "Flatpak installed. Please reboot your system."
             ;;
         "Fedora")
-            echo "To install Flatpak on Fedora, run the following commands:"
-            echo "sudo dnf install flatpak"
+            echo "Installing Flatpak on Fedora..."
+            sudo dnf install -y flatpak
             ;;
         "Arch")
-            echo "To install Flatpak on Arch, run the following commands:"
-            echo "sudo pacman -S flatpak"
+            echo "Installing Flatpak on Arch..."
+            sudo pacman -S --noconfirm flatpak
             ;;
         "RHEL" | "CentOS")
-            echo "To install Flatpak on $distro, run the following commands:"
-            echo "sudo yum install flatpak"
-            echo "flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+            echo "Installing Flatpak on $distro..."
+            sudo yum install -y flatpak
+            flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
             ;;
         "OpenSuse")
-            echo "To install Flatpak on OpenSuse, run the following commands:"
-            echo "sudo zypper install flatpak"
+            echo "Installing Flatpak on OpenSuse..."
+            sudo zypper install -y flatpak
             ;;
         *)
             echo "Unknown distribution. Please visit https://flathub.org/setup for manual Flatpak installation instructions."
             ;;
     esac
 fi
+
