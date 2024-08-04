@@ -17,4 +17,4 @@ Distro-Finder is a simple Bash script designed to identify the Linux distributio
 
 1.     git clone https://github.com/Timfedora/Install-Flatpak-flathub.git
 2.     cd Install-Flatpak-flathub
-3.     ./Install-flatsh
+3.     ./Install-flat.sh
