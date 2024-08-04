@@ -1,4 +1,4 @@
-# Install-Flatpak/Flathub
+# Install-Flatpak-flathub
 
 Distro-Finder is a simple Bash script designed to identify the Linux distribution you are currently using, determine your desktop environment, and check if Flatpak is installed. If Flatpak is not installed, the script provides instructions to install it based on your detected distribution and desktop environment.
 
